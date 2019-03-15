@@ -31,7 +31,7 @@ stock int CreateBot(int client, bool forceCrouch, const char[] providedName = ""
 
   g_BotNameNumber[bot] = botNumberTaken;
   g_ClientBots[client].Push(bot);
-  g_IsPMBot[bot] = true;``
+  g_IsPMBot[bot] = true;
 
   if (botTeam == CS_TEAM_NONE) {
     botTeam = GetClientTeam(client) == CS_TEAM_CT ? CS_TEAM_T : CS_TEAM_CT;
