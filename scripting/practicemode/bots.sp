@@ -25,8 +25,8 @@ stock int CreateBot(int client, bool forceCrouch, const char[] providedName = ""
   int g=-1;
   int b=-1;
   int a=-1;
-  int rnd = GetEntityRenderMode(bot);
-  GetEntityRenderColor(bot, &r, &g, &b, &a);
+  RenderMode rnd = GetEntityRenderMode(bot);
+  GetEntityRenderColor(bot, r, g, b, a);
   PrintToServer("Bot color: %d %d %d %d %d", rnd, r, g, b, a);
 
   g_BotNameNumber[bot] = botNumberTaken;
