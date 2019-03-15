@@ -21,16 +21,23 @@ stock int CreateBot(int client, bool forceCrouch, const char[] providedName = ""
     PM_Message(client, "Failed to create bot :(");
     return -1;
   }
+  int r=-1;
+  int g=-1;
+  int b=-1;
+  int a=-1;
+  int rnd = GetEntityRenderMode(bot);
+  GetEntityRenderColor(bot, &r, &g, &b, &a);
+  PrintToServer("Bot color: %d %d %d %d %d", rnd, r, g, b, a);
 
   g_BotNameNumber[bot] = botNumberTaken;
   g_ClientBots[client].Push(bot);
-  g_IsPMBot[bot] = true;
+  g_IsPMBot[bot] = true;``
 
   if (botTeam == CS_TEAM_NONE) {
     botTeam = GetClientTeam(client) == CS_TEAM_CT ? CS_TEAM_T : CS_TEAM_CT;
   }
   ChangeClientTeam(bot, botTeam);
-
+  // mp_respawn_immunitytime entity flag
   bool clientCrouching = (GetEntityFlags(client) & FL_DUCKING != 0);
   g_BotCrouching[bot] = forceCrouch || clientCrouching;
 
